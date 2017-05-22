@@ -217,7 +217,7 @@ def do_encode(state, website = None):
      body =  pretty_print_all(body.replace("CFP_CONF_ABBREV", conf_name), state)
      return (header, body)
 
-def main():
+def main(version = 1):
      parser = argparse.ArgumentParser()
      parser.add_argument('--seed', metavar='S', type=int,
                          help='the random number generator seed')
@@ -270,9 +270,9 @@ def main():
 
      # load grammars
      #print "1) %s" % time.time()
-     header_grammar = nltk.data.load("file:%s" % common.header_cfg_filename(),
+     header_grammar = nltk.data.load("file:%s" % common.header_cfg_filename(version),
                                      'cfg')
-     body_grammar = nltk.data.load("file:%s" % common.body_cfg_filename(),
+     body_grammar = nltk.data.load("file:%s" % common.body_cfg_filename(version),
                                    'cfg')
      #print "2) %s" % time.time()
      state = EncodeState(input_text, Bitstring(), common, header_grammar,

@@ -92,10 +92,16 @@ class CfpCommonV1(cfp_common.CfpCommon):
                list_bits[l] = int(msg_len*fraction_in_lists*w/total_weight)
           return list_bits
 
-     def header_cfg_filename(self):
-          return "cfp_header.cfg"
+     def header_cfg_filename(self, version = 1):
+          if version == 1:
+               return "cfp_header.cfg"
+          else:
+               return "cfp_header_2.cfg"
 
-     def body_cfg_filename(self):
-          return "cfp_body.cfg"
+     def body_cfg_filename(self, version = 1):
+          if version == 1:
+               return "cfp_body.cfg"
+          else:
+               return "cfp_body_2.cfg"
 
 cfp_common.CfpCommon.register_common(CfpCommonV1)

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>wow</title>
+    <link href="{{url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" text="text/css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+</head>
+<body>
+    <div class="container stuff">
+        <div class="header">
+            arf arf
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row-item">
+                    <div class="subheader">
+                        Type a message to encode
+                    </div>
+                    <form id="parameters">
+                        <input type="text" name="parameter" placeholder="potato"/>
+                        <div class="button">Submit</div>
+                    </form>
+                </div>
+                <div class="row-item">
+                    <div class="subheader">
+                        Options
+                    </div>
+                    <div class="descr">
+                        What parts of the conference announcement do you want to match for?
+                    </div>
+                    <form action="">
+                        <input type="checkbox" name="match-critera" value="title">Title<br>
+                        <input type="checkbox" name="match-critera" value="title">First sentence
+                    </form>
+                    <div class="descr">
+                        How wide do you want the vocabulary to be?
+                    </div>
+                    <form action="">
+                        <input type="radio" name="vocab" value="super-restricted">Super restricted<br>
+                        <input type="radio" name="match-critera" value="title">Full range of vocab
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row-item">
+                    <div class="subheader">
+                        Results
+                    </div>
+                    <div class="descr">
+                        Your original conference announcement:
+                    </div>
+                    <div class="orig text">
+                        <textarea type="text" class="ref-text" readonly disabled>{{random_text}}</textarea>
+                        <div class="fadeout"></div>
+                    </div>
+                    <div class="descr">
+                        Another random conference announcement
+                    </div>
+                    <div class="text" id="latest">
+                        <textarea type="text" class="ref-text" readonly disabled></textarea>
+                        <div class="fadeout"></div>
+                    </div>
+                    <div class="descr">
+                        Your high scores or whatever
+                        <!--table-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

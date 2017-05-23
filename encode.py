@@ -217,7 +217,7 @@ def do_encode(state, website = None):
      body =  pretty_print_all(body.replace("CFP_CONF_ABBREV", conf_name), state)
      return (header, body)
 
-def main(version = 1):
+def main(version = 2):
      parser = argparse.ArgumentParser()
      parser.add_argument('--seed', metavar='S', type=int,
                          help='the random number generator seed')

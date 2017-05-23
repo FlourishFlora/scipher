@@ -4,22 +4,30 @@
 <head>
     <meta charset="utf-8" />
     <title>wow</title>
-    <link href="{{url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel='stylesheet' type='text/css'>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" text="text/css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link href="{{url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="{{url_for('static',filename='js/script.js')}}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="container stuff">
-        <div class="header">
-            arf arf
+        <div class="h1">
+            OK Google, Pronounce YHWH
+        </div>
+        <div class="flavor">
+            You're the organizer of a leading conference in computer science, the H-sorted Copyleft Hallux Symposium. Anyway, you've written an email to send out to your fellow computer scientists to ask them to submit, but your computer caught on fire and you didn't back up your files. You don't remember much more than snippets of what you wrote, but you do know it was absolutely perfect, and you'll know it when you see it. <strong>Can you recover it from the void?</strong>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="row-item">
-                    <div class="subheader">
+                    <div class="h2">
                         Type a message to encode
                     </div>
                     <form id="parameters">
@@ -27,7 +35,7 @@
                     </form>
                 </div>
                 <div class="row-item">
-                    <div class="subheader">
+                    <div class="h2">
                         Options
                     </div>
                     <div class="descr">
@@ -43,13 +51,15 @@
                     <form action="">
                         <input type="radio" name="vocab" value="super-restricted">Super restricted<br>
                         <input type="radio" name="match-critera" value="title">Full range of vocab
-                        <div class="button">Submit</div>
+                        <button class="submit mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>
             <div class="col-sm-8">
                 <div class="row-item">
-                    <div class="subheader">
+                    <div class="h2">
                         Results
                     </div>
                     <div class="descr">

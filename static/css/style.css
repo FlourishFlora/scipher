@@ -1,17 +1,31 @@
 body
 {
-    font-size: 1rem;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-family: Roboto, sans-serif;
     width: 90%;
     margin: auto;
 }
-.header
+.h1
 {
+    font-family: Roboto;
+    font-weight: 300;
     font-size: 4rem;
 }
-.subheader
+.h2
 {
+    font-family: Roboto;
+    font-weight: 400;
     font-size: 2rem;
+}
+.h3
+{
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.flavor
+{
+    font-size: 1rem;
 }
 .descr
 {
@@ -29,7 +43,7 @@ body
     width: 80%;
     margin: auto;
 }
-.button
+.submit
 {
     margin: .3em;
     color: cornflowerblue;

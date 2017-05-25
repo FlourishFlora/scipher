@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>wow</title>
@@ -16,6 +17,7 @@
     <script src="{{url_for('static',filename='js/script.js')}}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="container stuff">
         <div class="h1">
@@ -27,30 +29,47 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="row-item">
-                    <div class="h2">
+                    <div class="h2" id="tt">
                         Type a message to encode
                     </div>
                     <form id="parameters">
-                        <input type="text" name="parameter" placeholder="potato"/>
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows="3" id="secret-message"></textarea>
+                                <label class="mdl-textfield__label" for="sample5">A secret message</label>
+                            </div>
+                        </form>
                     </form>
                 </div>
                 <div class="row-item">
                     <div class="h2">
                         Options
                     </div>
-                    <div class="descr">
+                    <div class="h3">
                         What parts of the conference announcement do you want to match for?
                     </div>
                     <form action="">
-                        <input type="checkbox" name="match-critera" value="title">Title<br>
-                        <input type="checkbox" name="match-critera" value="title">First sentence
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="match-title">
+                            <input type="checkbox" id="match-title" class="mdl-checkbox__input" checked>
+                            <span class="mdl-checkbox__label">Title</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="match-sentence">
+                            <input type="checkbox" id="match-sentence" class="mdl-checkbox__input" checked>
+                            <span class="mdl-checkbox__label">First sentence</span>
+                        </label>
                     </form>
-                    <div class="descr">
+                    <div class="h3">
                         How wide do you want the vocabulary to be?
                     </div>
                     <form action="">
-                        <input type="radio" name="vocab" value="super-restricted">Super restricted<br>
-                        <input type="radio" name="match-critera" value="title">Full range of vocab
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="super-restricted">
+                            <input type="radio" id="super-restricted" class="mdl-radio__button" name="options" value="1" checked>
+                            <span class="mdl-radio__label">Super restricted</span>
+                        </label>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="super-restricted">
+                            <input type="radio" id="super-restricted" class="mdl-radio__button" name="options" value="1" checked>
+                            <span class="mdl-radio__label">All the vocab</span>
+                        </label>
                         <button class="submit mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             Submit
                         </button>
@@ -62,27 +81,50 @@
                     <div class="h2">
                         Results
                     </div>
-                    <div class="descr">
+                    <div class="h3">
                         Your original conference announcement:
                     </div>
                     <div class="orig text">
                         <textarea type="text" class="ref-text" readonly disabled>{{random_text}}</textarea>
                         <div class="fadeout"></div>
                     </div>
-                    <div class="descr">
+                    <div class="h3">
                         Another random conference announcement
                     </div>
                     <div class="text">
                         <textarea type="text" class="ref-text" readonly disabled id="latest"></textarea>
                         <div class="fadeout"></div>
                     </div>
-                    <div class="descr">
+                    <div class="h3">
                         Your high scores or whatever
-                        <!--table-->
                     </div>
+                    <table class="mdl-data-table mdl-js-data-table">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Score</th>
+                                <th>Time (s)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Don Aubrey</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Steve Moreno</td>
+                                <td>29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

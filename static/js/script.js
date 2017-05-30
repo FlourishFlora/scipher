@@ -1,8 +1,13 @@
+var interval = undefined;
 function requestText(arg) {
     $.get("/generate", {arg:arg}, updateOriginal);
 }
 function updateOriginal(newText) {
     $("#orig-text").val(newText);
+    console.log(newText);
+}
+function updateClosestMatch(newText) {
+    $("#latest").val(newText);
     console.log(newText);
 }
 $(document).ready(function() {

@@ -11,6 +11,9 @@ function updateClosestMatch(newText) {
     $("#latest").val(newText);
     console.log(newText);
 }
+function updateTable(time, score) {
+    $('#myTable').append('<tr><td>time</td><td>score</td></tr>');
+}
 $(document).ready(function() {
     interval = setInterval(function() {
         requestText($("#secret-message").val(), updateClosestMatch)

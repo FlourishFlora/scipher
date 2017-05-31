@@ -1,6 +1,6 @@
 import subprocess
 from similarity import cosine_sim
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 from Queue import Queue
 from threading import Thread
 app = Flask(__name__)
@@ -27,11 +27,15 @@ def worker():
         if not buffer.full():
             buffer.put(get_random_text(current_secret))
 def get_closest_match():
-    #bufferindex stuff?
-    for i in buffer:
-        if cosine_sim(i) > high_score:
-            updateClosestMatch(i) #idk how do i call a js thing?
-            #return?
+    curr_text = buffer.pop()
+    curr_score = cosine_sim(text, curr_text)
+    if curr_score > high_score:
+        high_score = curr_score
+        response = {data: curr_text, new_high_score: true}
+        return jsonify(response)
+    else:
+        response = {data: curr_text, new_high_score: false}
+        return jsonify(response)
 
 if __name__ == "__main__":
     random_text = get_random_text("hey")

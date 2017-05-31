@@ -35,11 +35,11 @@ function getFormattedDate(){
 }
 $(document).ready(function() {
     $('#start-generation').click(function(){
-		/**clearInterval(interval);
+		clearInterval(interval);
 		$("#monkey").html("Monkeys are typing... please be patient!");
 		interval = setInterval(function() {
 			requestComparedText($("#secret-message").val(), updateClosestMatch)
-		}, 1000);**/
+		}, $("#frequency").val());
 	});
     $("#secret-message").change(function() {
         var c = $(this);

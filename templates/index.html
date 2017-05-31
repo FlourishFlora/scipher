@@ -70,9 +70,17 @@
                             <input type="radio" id="super-restricted" class="mdl-radio__button" name="options" value="1" checked>
                             <span class="mdl-radio__label">All the vocab</span>
                         </label><br>
-                        <button class="submit mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            Submit
-                        </button>
+                        <div class="row-item">
+                            <div class="h2">
+                                Generate texts
+                            </div>
+                            <div class="h3" id="monkey">
+                                Have the resident monkeys start typing.
+                            </div>
+                            <button id="start-generation" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                Start generation.
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -101,7 +109,7 @@
                     <table class="mdl-data-table mdl-js-data-table" id="table">
                         <thead>
                             <tr>
-                                <th class="mdl-data-table__cell--non-numeric">Time (s)</th>
+                                <th class="mdl-data-table__cell--non-numeric">Time</th>
                                 <th>Score</th>
                             </tr>
                         </thead>

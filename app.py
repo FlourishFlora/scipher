@@ -17,6 +17,7 @@ def home():
 def generate_text():
     print(request.args.get("arg"))
     return buffer.get()
+	
 def get_random_text(string):
     pipe = subprocess.Popen(["echo", string], stdout = subprocess.PIPE)
     output = subprocess.check_output(["./encode.py"], stdin = pipe.stdout)
@@ -26,15 +27,17 @@ def worker():
     while True:
         if not buffer.full():
             buffer.put(get_random_text(current_secret))
+@app.route("/compare")
 def get_closest_match():
-    curr_text = buffer.pop()
-    curr_score = cosine_sim(text, curr_text)
+    global high_score
+    curr_text = buffer.get()
+    curr_score = cosine_sim(random_text, curr_text)
     if curr_score > high_score:
         high_score = curr_score
-        response = {data: curr_text, new_high_score: true}
+        response = {"data" : curr_text, "new_high_score": True, "score" : curr_score}
         return jsonify(response)
     else:
-        response = {data: curr_text, new_high_score: false}
+        response = {"data" : curr_text, "new_high_score" : False, "score" : curr_score}
         return jsonify(response)
 
 if __name__ == "__main__":

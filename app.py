@@ -3,6 +3,7 @@ from similarity import cosine_sim
 from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 from Queue import Queue
 from threading import Thread
+
 app = Flask(__name__)
 random_text = ""
 buffer = Queue(maxsize = 100)
@@ -22,11 +23,13 @@ def get_random_text(string):
     pipe = subprocess.Popen(["echo", string], stdout = subprocess.PIPE)
     output = subprocess.check_output(["./encode.py"], stdin = pipe.stdout)
     return output
+
 def worker():
     print("thread started")
     while True:
         if not buffer.full():
             buffer.put(get_random_text(current_secret))
+
 @app.route("/compare")
 def get_closest_match():
     global high_score
